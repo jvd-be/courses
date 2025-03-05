@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'sf';
+  src: url(font/sf-arabic/SFArabic-Medium.ttf);
+}
+@font-face {
+  font-family: 'irancell';
+  src: url(font/Irancell-font/MTNIrancell-Medium.ttf);
+}
+
+@keyframes textColorChange {
+  0% {
+    color: #e6eff6; /* رنگ سفید */
+  }
+  10% {
+    color: #dce9fc; /* رنگ سفید روشن */
+  }
+  20% {
+    color: #CCE0FF; /* آبی روشن */
+  }
+  30% {
+    color: #99CCFF; /* آبی خیلی روشن */
+  }
+  40% {
+    color: #66B2FF; /* آبی کم رنگ */
+  }
+  50% {
+    color: #3399FF; /* آبی متوسط */
+  }
+  60% {
+    color: #0073E6; /* آبی مایل به آسمانی */
+  }
+  70% {
+    color: #0060CC; /* آبی تیره */
+  }
+  80% {
+    color: #004C99; /* آبی تیره‌تر */
+  }
+  90% {
+    color: #003366; /* آبی خیلی تیره */
+  }
+  100% {
+    color: #0000FF; /* آبی پررنگ */
+  }
+}
+
+.arrow{
+  animation: textColorChange 5s infinite ease-in;
+  transition: all ease-in-out;
+  
+}
+.bg-gradient-custom {
+  background: linear-gradient(to left, #004c80, #005c99, #006eb3, #3388ff); 
+}
+.bg-gradient-custom:hover {
+  background: linear-gradient(to left, #013971, #004080, #0059b3, #0073e6);
+}
+.sc{
+  direction: ltr;
+}
+   /* استایل‌دهی به اسکرول بار */
+   .sc::-webkit-scrollbar {
+    width: 8px; /* عرض اسکرول بار */
+  }
+
+  .sc::-webkit-scrollbar-track {
+    background: #f1f1f1; /* پس‌زمینه اسکرول بار */
+    border-radius: 15px; /* گوشه‌های گرد برای پس‌زمینه */
+  }
+
+  .sc::-webkit-scrollbar-thumb {
+    background: #0073E6; /* رنگ بخش قابل کشیدن */
+    border-radius: 10px; /* گوشه‌های گرد برای بخش قابل کشیدن */
+    border: 3px solid #f1f1f1; /* ایجاد حاشیه برای thumb */
+  }
+
+  /* تغییر رنگ بخش قابل کشیدن (thumb) هنگام hover */
+  .sc::-webkit-scrollbar-thumb:hover {
+    background: #555; /* تغییر رنگ هنگام hover */
+  }
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
