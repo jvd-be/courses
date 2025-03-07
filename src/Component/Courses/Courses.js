@@ -32,7 +32,7 @@ export default function Latest() {
      
   };
   return (
-    <div className="px-16 pt-6 pb-6 ">
+    <div className="px-8 md:px-16 pt-6 pb-6 ">
       <div className="section_last text-xl text-slate-500  font-sf my-8 dark:text-yellow-50">
         تمام دوره ها
       </div>

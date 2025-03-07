@@ -22,7 +22,7 @@ export default function DetailsBlog() {
   };
   const {title,image,sections}=blog
   
-  console.log(sections)
+  
 
   if(sections){
     sections.map(item=>{
@@ -31,7 +31,7 @@ export default function DetailsBlog() {
     })
     let titles=Object.entries(sections)
   
-    console.log(titles);
+  
   }
 
   
@@ -41,9 +41,9 @@ export default function DetailsBlog() {
   
   return (
     <div>
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-8 md:px-16 py-6">
           
-        <div className="max-w-4xl mx-auto">
+        <div className=" mx-auto">
           <h1 className="text-4xl font-semibold text-gray-800 mb-4">{title}</h1>
 
           <img

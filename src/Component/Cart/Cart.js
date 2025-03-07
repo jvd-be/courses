@@ -41,7 +41,7 @@ export default function Cart() {
   };
 
   return (
-    <div className="px-4 py-4 md:px-16 md:py-10 bg-[#EEF3F9] dark:bg-slate-800 font-sf">
+    <div className=" py-4 px-8 md:px-16 md:py-10 bg-[#EEF3F9] dark:bg-slate-800 font-sf">
       {cartCourse ? (
         <div className="max-w-md md:max-w-2xl mx-auto mt-10 md:mt-20 w-full">
           <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">سبد خرید شما</h2>

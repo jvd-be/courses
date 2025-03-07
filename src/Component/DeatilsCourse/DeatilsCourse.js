@@ -68,7 +68,7 @@ export default function DeatilsCourse() {
     instructor,
   } = courses;
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-8 md:px-16 py-6">
       <div className="bg-white dark:bg-slate-600 dark:text-yellow-50 shadow-lg rounded-lg px-8 py-11">
         <div className="flex flex-col md:flex-row gap-8">
           {/* تصویر دوره */}
@@ -81,7 +81,7 @@ export default function DeatilsCourse() {
           </div>
 
           {/* اطلاعات دوره */}
-          <div className="px-16 pb-3 pt-3.5">
+          <div className="px-8 md:px-16 pb-3 pt-3.5">
             <h1 className="text-3xl font-sf font-semibold text-gray-800 mb-4">
               {title}
             </h1>

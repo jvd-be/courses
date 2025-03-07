@@ -31,7 +31,7 @@ export default function Blogs() {
   
   
   return (
-    <div className="container mx-auto px-12 py-6 font-sf">
+    <div className="container mx-auto px-8 md:px-16 py-6 font-sf">
       <h2 className="text-xl  text-slate-600 mb-6">مقالات </h2>
       {load ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

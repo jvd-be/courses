@@ -3,79 +3,67 @@ import { NavLink, Link } from "react-router-dom";
 import Them from "../Them/Them";
 import Search from "../Search/Search";
 export default function Navbar() {
-
-  let [userName, setUserName] = useState(null); 
+  let [userName, setUserName] = useState(null);
   let [regsteruser, setRegsterUser] = useState(false);
-  let [cartItem,setCartItem]=useState(0)
+  let [mobileMenue, setmobileMenue] = useState(false);
+  let [cartItem, setCartItem] = useState(0);
 
-//{Check whether the user is logged in or not}
+  //{Check whether the user is logged in or not}
   useEffect(() => {
     try {
-      
-     let regster= JSON.parse(localStorage.getItem("regster"));
+      let regster = JSON.parse(localStorage.getItem("regster"));
       console.log(regster);
-      
-      setRegsterUser(regster) 
-     console.log(regsteruser);
-     
-      
-      
+
+      setRegsterUser(regster);
+      console.log(regsteruser);
     } catch (error) {
-        console.log(error);
-        
+      console.log(error);
     }
   }, []);
   //{receive userName}
-  useEffect(()=>{
-    if(regsteruser){
+  useEffect(() => {
+    if (regsteruser) {
       try {
-
         const name = JSON.parse(localStorage.getItem("userName"));
         setUserName(name);
         console.log(userName);
-        
       } catch (error) {
-          console.log(error);
-          
+        console.log(error);
       }
     }
-  },[regsteruser,userName])
+  }, [regsteruser, userName]);
 
   //{show number of cart}
-  useEffect(()=>{
-   
+  useEffect(() => {
+    let cartLength = JSON.parse(localStorage.getItem("cart"));
 
-      let cartLength=JSON.parse(localStorage.getItem('cart'))
-  
-      if(cartLength){
-        setCartItem(cartLength.length)
-      }
-      
+    if (cartLength) {
+      setCartItem(cartLength.length);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.setItem("regster", JSON.stringify(false));
+    setRegsterUser(false);
+    setUserName(null);
+  };
+
+  const menuMobileHandle=()=>{
     
-  },[])
-  
-
-  
-  const handleLogout=()=>{
-    localStorage.setItem('regster',JSON.stringify(false))
-    setRegsterUser(false)
-    setUserName(null)
+    setmobileMenue(!mobileMenue)    
   }
-  
 
   return (
     <div>
-      <div className="px-4 md:px-16 pt-6 pb-6 flex items-center justify-between font-sf">
-        <div className="flex items-center justify-between">
-          
-          
+      <div className="px-8 md:px-16 pt-6 pb-6 flex items-center justify-between font-sf bg-[#EEF3F9]">
+        <div className="hidden md:flex items-center md:justify-between text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-8 md:size-10 ml-0 md:ml-8"
+            className="size-8 block md:size-10 ml-0 md:ml-8"
           >
             <path
               strokeLinecap="round"
@@ -84,13 +72,11 @@ export default function Navbar() {
             />
           </svg>
         </div>
-        <ul
-          className='md:flex justify-between gap-x-8 items-center list-none' 
-        >
+        <ul className="hidden w-full md:flex md:gap-x-10 items-center list-none">
           <NavLink
             to={"./courses"}
             className={({ isActive }) =>
-              isActive ? "text-blue-500" : "text-gray-500 dark:text-yellow-50"
+              isActive ? "text-blue-500 " : "text-gray-500  dark:text-yellow-50"
             }
           >
             دوره ها
@@ -98,7 +84,9 @@ export default function Navbar() {
           <NavLink
             to={"./blogs"}
             className={({ isActive }) =>
-              isActive ? "text-blue-500" : "text-gray-500 dark:text-yellow-50"
+              isActive
+                ? "text-blue-500  "
+                : "text-gray-500   dark:text-yellow-50"
             }
           >
             بلاگ ها
@@ -106,24 +94,89 @@ export default function Navbar() {
           <NavLink
             to={"/"}
             className={({ isActive }) =>
-              isActive ? "text-blue-500" : "text-gray-500 dark:text-yellow-50"
+              isActive ? "text-blue-500 " : "text-gray-500  dark:text-yellow-50"
             }
           >
             خانه
           </NavLink>
         </ul>
-        <div className="left_nav flex items-center cursor-pointer flex-col md:flex-row gap-y-4 md:gap-y-0">
-          <Search></Search>
+        <div className="mobile_menu md:hidden">
 
+          <span className="z-20 relative" onClick={menuMobileHandle}>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 6H21M3 12H21M3 18H21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          </span>
+          { <div className={`${mobileMenue ? 'opacity-1 right-0 absolute bg-[#d7e6f8]  w-2/5 h-screen ease-linear duration-200 transition-all top-0' : "-right-52 w-2/5 h-full absolute  ease-linear duration-200 transition-all opacity-0 top-0"}`}>
+            <ul className=" flex flex-col items-center justify-center gap-y-6 w-full my-20">
+          <NavLink
+            to={"./courses"}
+            className={({ isActive }) =>
+              isActive ? "text-blue-500 " : "text-gray-500  dark:text-yellow-50"
+            }
+          >
+            دوره ها
+          </NavLink>
+          <NavLink
+            to={"./blogs"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-blue-500  "
+                : "text-gray-500   dark:text-yellow-50"
+            }
+          >
+            بلاگ ها
+          </NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive ? "text-blue-500 " : "text-gray-500  dark:text-yellow-50"
+            }
+          >
+            خانه
+          </NavLink>
+          <NavLink
+            to={"cart"}
+            className={({ isActive }) =>
+              isActive ? "text-blue-500 " : "text-gray-500  dark:text-yellow-50"
+            }
+          >
+            سبد خرید
+          </NavLink>
+
+            
+          
+        </ul>
+          </div>}
+            
+        </div>
+        <div className="hidden w-4/5 lg:block">
+          <Search></Search>
+        </div>
+        <div className="left_nav flex items-center cursor-pointer justify-end w-full gap-x-12  ">
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-blue-500 pr-4 w-8"
-                : "text-gray-500 w-8 dark:text-yellow-50 pr-4"
+                ? "text-blue-500 pr-4 w-8 hidden md:block"
+                : "text-gray-500 w-8 hidden md:block dark:text-yellow-50 pr-4"
             }
             to={"cart"}
           >
-            <span className="bg-red-600 text-white p-1 rounded-md absolute top-4">{cartItem}</span>
+            <span className="bg-red-600 text-white p-1 rounded-md absolute top-4">
+              {cartItem}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -139,11 +192,14 @@ export default function Navbar() {
               />
             </svg>
           </NavLink>
-          <div className="mx-0 md:mx-12">
+          <div className=" hidden md:block">
             <Them></Them>
           </div>
 
-          <div onClick={handleLogout} className="mx-0 md:mx-12 text-gray-600 dark:text-white hover:text-sky-500">
+          <div
+            onClick={handleLogout}
+            className="  text-gray-600 dark:text-white hover:text-sky-500 hidden md:block "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -160,7 +216,7 @@ export default function Navbar() {
             </svg>
           </div>
 
-          <div className="login bg-[#286BB8] hover:bg-[#1C4E88] text-white px-4 py-2 rounded-md cursor-pointer w-full md:w-auto">
+          <div className="login bg-[#286BB8] hover:bg-[#1C4E88] text-white px-4 py-2 rounded-md cursor-pointer ">
             <Link to={"./login"}>
               {regsteruser ? userName : "ورود یا ثبت نام"}
             </Link>

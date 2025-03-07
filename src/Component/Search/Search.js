@@ -58,9 +58,9 @@ export default function Search() {
   }, [wsearch]);
   return (
     <div>
-      <div className="search_box flex bg-white px-4 py-2  rounded-md w-full md:w-auto">
+      <div className="search_box flex bg-white px-4 py-2  rounded-md w-full">
         <input
-          className="border-none outline-none dark:text-black w-full relative"
+          className="border-none outline-none dark:text-black w-full relative "
           type="text"
           placeholder="هرچی میخوای جستجو کن"
           value={wsearch}
