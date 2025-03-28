@@ -49,7 +49,7 @@ export default function DetailsBlog() {
           <img
             src={image}
             alt="Article Image"
-            class="w-full h-96 object-cover rounded-lg mb-6"
+            className="w-full h-96 object-cover rounded-lg mb-6"
           />
           {sections && sections.map(
           ({
@@ -77,7 +77,7 @@ export default function DetailsBlog() {
             >
               بازگشت{" "}
             </a>
-            <div class="flex space-x-4">
+            <div className="flex space-x-4">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
                 لایک
               </button>

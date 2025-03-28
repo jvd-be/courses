@@ -52,8 +52,7 @@ export default function Search() {
       setSarchContainer(true)
     } else {
       setCourse([]);
-      setBlog([]);
-      
+      setBlog([]);      
     }
   }, [wsearch]);
   return (

@@ -158,13 +158,13 @@ export default function Login() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="2.8"
+              strokeWidth="2.8"
               stroke="currentColor"
-              class="size-4"
+              className="size-4"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
               />
             </svg>
@@ -174,11 +174,11 @@ export default function Login() {
           <a href="#">رمز عبور خود را فراموش کرده‌اید؟</a>
         </div>}
       </div>
-       {showModal &&  <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white p-8 rounded-lg w-96 text-center">
-            <h2 class="text-2xl font-bold text-green-600">ثبت نام با موفقیت انجام شد</h2>
-            <p class="mt-4 text-gray-600">شما با موفقیت در سیستم ثبت نام کردید.</p>
-            <button id="closeModalBtn" class="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" onClick={()=>setShowModal(false)}>
+       {showModal &&  <div id="successModal" className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="bg-white p-8 rounded-lg w-96 text-center">
+            <h2 className="text-2xl font-bold text-green-600">ثبت نام با موفقیت انجام شد</h2>
+            <p className="mt-4 text-gray-600">شما با موفقیت در سیستم ثبت نام کردید.</p>
+            <button id="closeModalBtn" className="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" onClick={()=>setShowModal(false)}>
                 بستن
             </button>
         </div>

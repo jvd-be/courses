@@ -12,10 +12,10 @@ export default function Navbar() {
   useEffect(() => {
     try {
       let regster = JSON.parse(localStorage.getItem("regster"));
-      console.log(regster);
+      
 
       setRegsterUser(regster);
-      console.log(regsteruser);
+      
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,7 @@ export default function Navbar() {
       try {
         const name = JSON.parse(localStorage.getItem("userName"));
         setUserName(name);
-        console.log(userName);
+        
       } catch (error) {
         console.log(error);
       }
@@ -113,9 +113,9 @@ export default function Navbar() {
             <path
               d="M3 6H21M3 12H21M3 18H21"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           </span>

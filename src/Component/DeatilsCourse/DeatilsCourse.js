@@ -126,18 +126,18 @@ export default function DeatilsCourse() {
       {showModal && (
         <div
           id="successModal"
-          class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
         >
-          <div class="bg-white p-8 rounded-lg w-96 text-center">
-            <h2 class="text-2xl font-bold text-green-600">
+          <div className="bg-white p-8 rounded-lg w-96 text-center">
+            <h2 className="text-2xl font-bold text-green-600">
               دوره به سبد خرید اضافه شد
             </h2>
-            <p class="mt-4 text-gray-600">
+            <p className="mt-4 text-gray-600">
               شما با موفقیت در دوره ثبت نام کردید.
             </p>
             <button
               id="closeModalBtn"
-              class="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              className="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
               onClick={() => setShowModal(false)}
             >
               بستن
