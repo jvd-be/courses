@@ -34,9 +34,11 @@ export default function useFetch(url) {
   },[visibleCourses,allCourse])
 
   
-  const handleLoadMore = useMemo(() => {
-    setVisibleCourses(visibleCourses + 8);
-  },[]);
+
+const handleLoadMore = useCallback(() => {
+  setVisibleCourses(prev => prev + 8);
+}, []);
+
 
     return { courses, allCourse, load, handleLoadMore }
 

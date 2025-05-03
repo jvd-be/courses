@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import { toPersianNumber } from "../../Helper";
 export default function Courses() {
   const { courses, allCourse, load, handleLoadMore}=useFetch(`http://localhost:5000/courses`)
   //{Go to the course page}
@@ -10,7 +11,7 @@ export default function Courses() {
     navigate(`/course/${id}`);
 
   }, [navigate])
-
+  
   const courseList = useMemo(() => {
 
     return courses.map(
@@ -64,8 +65,8 @@ export default function Courses() {
               </span>
 
               <div className="flex justify-evenly items-center w-full">
-                <span className="text-sky-500 font-sf text-base ">
-                  {price} میلیون تومان
+                <span className="text-sky-500 font-sf text-lg font-semibold">
+                  {toPersianNumber(price.toLocaleString())} میلیون تومان
                 </span>
                 <a
                   onClick={() => handleNavigate(id)}

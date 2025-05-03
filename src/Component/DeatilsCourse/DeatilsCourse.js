@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext,useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toPersianNumber } from "../../Helper";
+import { ContextData } from "../../Context/Context";
 export default function DeatilsCourse() {
   let idCourse = useParams(); //{receive id}
   let [courses, setCourses] = useState();
@@ -7,6 +9,7 @@ export default function DeatilsCourse() {
   let [showModal, setShowModal] = useState(false);
   let [regsteruser, setRegsterUser] = useState(false);
   let navigate = useNavigate();
+  const {cartItem,setCartItem}=useContext(ContextData)
 
   useEffect(() => {
     try {
@@ -43,7 +46,9 @@ export default function DeatilsCourse() {
         return item.id !== course.id;
       });
 
-      localStorage.setItem("cart", JSON.stringify([...cart, course]));
+      const newCart=[...cart, course];
+      setCartItem(newCart)
+      
       setShowModal(true);
     }
   };
@@ -90,7 +95,7 @@ export default function DeatilsCourse() {
             </p>
             <div className="flex items-center gap-4 mb-6 font-sf">
               <div className="text-xl font-semibold text-green-600 font-sf">
-                میلیون تومان:{price}
+               {toPersianNumber(price.toLocaleString())} تومان
               </div>
             </div>
 
